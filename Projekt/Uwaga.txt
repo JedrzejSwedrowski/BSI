@@ -1,0 +1,4 @@
+Aby móc uruchomić projekt lokalnie (środowisko React) na określonym urządzeniu należy mieć zainstalowany Node.js i w wierszu poleceń wpisać:
+- cd (lokalizacja projektu)
+- npm install
+- npm start

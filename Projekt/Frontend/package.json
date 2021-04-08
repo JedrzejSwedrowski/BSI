@@ -1,0 +1,44 @@
+{
+  "name": "typeofweb-kurs-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "jquery": "^1.9.1",
+    "popper.js": "^1.16.1",
+    "react": "16.2.0",
+    "react-bootstrap": "^1.4.3",
+    "react-dom": "16.2.0",
+    "react-scripts": "1.1.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.2"
+  },
+  "devDependencies": {
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "gh-pages": "1.1.0",
+    "jest-enzyme": "4.1.1",
+    "react-test-renderer": "16.2.0"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "homepage": "https://mmiszy.github.io/typeofweb-kurs-react",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
