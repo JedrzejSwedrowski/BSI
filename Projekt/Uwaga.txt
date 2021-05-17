@@ -1,4 +1,38 @@
-Aby móc uruchomić projekt lokalnie (środowisko React) na określonym urządzeniu należy mieć zainstalowany Node.js i w wierszu poleceń wpisać:
-- cd (lokalizacja projektu)
-- npm install
-- npm start
+Projekt do uruchomienia wymaga aplikacji o nazwie XAMPP, w której to trzeba tuż po uruchomieniu włączyć Appache oraz MySQL za pomocą przycisku Start
+Po uruchomieniu tych obu opcji należy kliknąć na przycisk o nazwie "Explorer", który uruchomi eksploarator plików.
+Następnie należy wejść do folderu htdocs, tam utworzyć nowy folder o wybranej przez nas nazwie (lub skopiować folder z zawartością, który został pobrany z repozytorium)
+W panelu od XAMPP klikamy przycisk Admin przy MySQL. W nowo otwartej karcie klikamy na opcję "New", która służy za utworzenie nowej lokalnej bazy danych.
+Bo przejściu do listy bazy danych poprzez kliknięcie wcześniej wybranego hiperłącza wpisujemy w polu Database name wyraz "appbase", a w liście wyboru "utf8imb4_general_ci".
+Teraz wchodzimy w nowo utworzoną bazę danych, przechodzimy na sekcję SQL i tam wpisujemy:
+
+CREATE TABLE `user` (
+  `user_id` int(30) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(50) collate latin2_bin DEFAULT NULL,
+  `user_pass` varchar(50) collate latin2_bin DEFAULT NULL,
+  `user_email` varchar(50) collate latin2_bin DEFAULT NULL,
+  `user_date` date DEFAULT NULL,
+  PRIMARY KEY  (`user_id`)
+);
+
+Po czym klikamy "Go". To powinno nam utworzyć nową tabelkę o nazwie user bez danych, ale z określonymi już parametrami.
+W przeglądarce w pasek adresu wpisujemy: "http://localhost/nazwafolderu/index.php".
+
+Dodawanie nowych użytkowników z pozycji bazy danych może poskutkować brakiem możliwości zalogowania na nich (można to jednak naprawić poprzez opcję resetowania hasła, która podmienia stare hasło na nowe)
+Zalecane jest tutaj w takim razie rejestrowanie nowych kont poprzez wciśnięcie "Utwórz konto" i podanie tam danych (zakończy się to dodaniem tego użytkownika do tabeli user w bazie danych)
+Zalogowanie się na istniejącego użytkownika powoduje przeniesienie na stronę od pytania bezpieczeństwa. Na pytanie należy odpowiedzieć poprawnie aby otrzymać dostęp - błędna odpowiedź skutkuje powrotem do strony głównej oraz wylogowaniem (pytanie można zmodyfikować poprzez zmianę pewnych elementów w kodzie).
+
+W przypadku, kiedy przy logowaniu za pomocą konta Google pojawi się błąd - należy się upewnić, czy konto z którego się logujemy należy do organizacji PWSZ Legnica.
+
+Aby podłączyć pod naszą stronę możliwość logowania przez Google musimy mieć założone konto na Google. Następnie przechodzimy do Google API Console pod adresem:
+https://console.developers.google.com/
+Jeśli nie mamy stworzonego projektu, klikamy na „Stwórz projekt” (Create project) u góry w menu, możemy też wykorzystać projekt, który już mamy.
+Następnie przechodzimy na stronę projektu, z menu po lewej wybieramy zakładkę „Biblioteka” (Library), szukamy pozycji „Google+ API”, klikamy na nią, następnie na „Włącz” (Enable).
+Następnie przechodzimy do zakładki „Dane logowania” (Credentials) z menu po lewej stronie.
+Klikamy na „Utwórz dane logowania” (Create Credentials) i wybieramy pozycję „ID klienta OAuth” (OAuth client ID). Jako typ aplikacji wybieramy „Aplikacja internetowa” (Web application),
+wpisujemy nazwę aplikacji a w polu „Autoryzowane identyfikatory URI przekierowania” (Authorised redirect URIs) wpisujemy adres URL naszej strony, na której będziemy używać możliwości logowania przez Google.
+Klikamy na przycisk „Utwórz” (Create).
+Wyświetli się nowe okno z Google ID i Google Secret.
+
+Google ID to pobrany z Google Identyfikator klienta, Google Secret to Tajny klucz klienta, a redirect url to adres URL naszej aplikacji (musi być zgodny z adresem podanym podczas tworzenia aplikacji)
+
+Kod jest napisany w języku PHP, w którym występuję także język HTML i SQL.
